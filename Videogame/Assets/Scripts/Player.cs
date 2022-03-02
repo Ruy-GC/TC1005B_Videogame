@@ -7,27 +7,21 @@ public class Player : MonoBehaviour
     //movement
     public float velocidad;
     public Rigidbody2D rb;
-    public float jumpAmount = 10;
+    public float jumpAmount = 7;
 
     //ground check
     public float distanceToCheck = 0.1f;
     bool isGrounded;
 
-    public float jumpForce = 20;
-    public float gravity = -9.81f;
-    public float gravityScale = 5;
-    float velocity;
-
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         //horizontal movement
         float horizontal = Input.GetAxis("Horizontal");
         transform.Translate(

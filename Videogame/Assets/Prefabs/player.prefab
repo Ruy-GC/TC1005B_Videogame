@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1666907873890689413}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1673484913
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1491be19dbeb07d45923c2b4d3e1b917, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,9 +101,6 @@ MonoBehaviour:
   rb: {fileID: 1666907873890689412}
   jumpAmount: 7
   distanceToCheck: 0.1
-  jumpForce: 20
-  gravity: -9.81
-  gravityScale: 5
 --- !u!50 &1666907873890689412
 Rigidbody2D:
   serializedVersion: 4
