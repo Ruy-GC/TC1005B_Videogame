@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float jumpAmount = 7;
 
+    //enemy collision
+    public float force = 5;
+    public ForceMode2D forceMode = ForceMode2D.Impulse;
+
     //ground check
     public float distanceToCheck = 0.1f;
     bool isGrounded;
@@ -54,6 +58,20 @@ public class Player : MonoBehaviour
             }
 
         }
-    
+    }
+
+    //al chocar con jugador
+    void OnCollisionEnter2D(Collision2D c){
+        if(c.gameObject.tag == "enemy"){
+            print("pp");
+            ContactPoint2D contactPoint = c.GetContact(0);
+            Vector2 playerPosition = transform.position;
+            Vector2 dir = contactPoint.point - playerPosition;
+            dir = -dir.normalized;
+
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            GetComponent<Rigidbody2D>().inertia = 0;
+            GetComponent<Rigidbody2D>().AddForce(dir * force, forceMode);
+        }
     }
 }
