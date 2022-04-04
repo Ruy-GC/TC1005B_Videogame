@@ -29,6 +29,10 @@ public class EnemyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        
+        randomDirection = new Vector3(0, Mathf.Sin(timeVar) * (rotationRange / 2) + baseDirection, 0);
+        timeVar += step;
+        speed = Random.Range(lowSpeed, highSpeed);
+        GetComponent<Rigidbody2D>().AddForce(transform.forward * speed);
+        transform.Rotate(randomDirection * Time.deltaTime * 10.0f);
     }
 }
