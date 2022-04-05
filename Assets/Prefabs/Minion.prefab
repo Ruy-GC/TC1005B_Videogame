@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3627593824746021437}
   - component: {fileID: 4263040133566438277}
   - component: {fileID: 3677037444574259440}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Minion
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationTime: 2
   lowSpeed: 0.5
-  highSpeed: 5
+  highSpeed: 3
   rb: {fileID: 0}
   collisionSound: {fileID: 8300000, guid: 4ff0d69c022ce804889d68fc2407ceca, type: 3}
   spriteRenderer: {fileID: -645093818839760360}

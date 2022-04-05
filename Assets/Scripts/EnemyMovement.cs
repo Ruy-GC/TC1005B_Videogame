@@ -10,7 +10,6 @@ public class EnemyMovement : MonoBehaviour
     private float time;
     //public float speed;
 
-    public Rigidbody2D rb;
     public AudioClip collisionSound;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -32,10 +31,11 @@ public class EnemyMovement : MonoBehaviour
             //GetComponent<Rigidbody2D>().AddForce((movement * -1) * highSpeed);
             movement = movement * -1;
             side = side * -1;
-            if (side > 0 ){
-                spriteRenderer.flipX = true;
-            }else if(side < 0){
+            print(side);
+            if (spriteRenderer.flipX){
                 spriteRenderer.flipX = false;
+            }else{
+                spriteRenderer.flipX = true;
             }
         }
     }

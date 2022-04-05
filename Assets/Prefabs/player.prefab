@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1666907873890689414}
   - component: {fileID: 1666907873890689417}
-  - component: {fileID: 1666907873890689415}
   - component: {fileID: 1666907873890689412}
   - component: {fileID: 1666907873890689413}
   - component: {fileID: 2585540427700268928}
+  - component: {fileID: 1666907873890689415}
   - component: {fileID: 3607429050505585830}
+  - component: {fileID: 951950816743469542}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -87,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1666907873890689415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666907873890689416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c993268dabbc17b4d9e2b7203100dd90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 5
-  rb: {fileID: 1666907873890689412}
-  jumpAmount: 10
-  spriteRenderer: {fileID: 1666907873890689417}
-  isLeft: 0
-  force: 5
-  forceMode: 1
-  damageUI: {fileID: 0}
-  distanceToCheck: 0.1
 --- !u!50 &1666907873890689412
 Rigidbody2D:
   serializedVersion: 4
@@ -174,6 +154,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1666907873890689415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666907873890689416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c993268dabbc17b4d9e2b7203100dd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 5
+  rb: {fileID: 1666907873890689412}
+  jumpAmount: 10
+  spriteRenderer: {fileID: 1666907873890689417}
+  isLeft: 0
+  distanceToCheck: 0.1
 --- !u!114 &3607429050505585830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +193,21 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &951950816743469542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666907873890689416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9594a94d3abab2847bae9e7c23ebaf8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  currentHP: 0
+  maxHP: 100
+  force: 5
+  forceMode: 1
+  damageUI: {fileID: 0}
