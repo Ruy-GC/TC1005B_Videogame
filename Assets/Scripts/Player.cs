@@ -6,18 +6,21 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     //movement
-    public float velocidad;
-    public Rigidbody2D rb;
-    public float jumpAmount = 7;
+
+    [SerializeField] private float velocidad;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float jumpAmount = 7;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    public bool isLeft;
 
     //enemy collision
-    public float force = 5;
-    public ForceMode2D forceMode = ForceMode2D.Impulse;
-    public GameObject damageUI;
+    [SerializeField] private float force = 5;
+    [SerializeField] private ForceMode2D forceMode = ForceMode2D.Impulse;
+    [SerializeField] private GameObject damageUI;
     Image damageImg;
 
     //ground check
-    public float distanceToCheck = 0.1f;
+    [SerializeField] private float distanceToCheck = 0.1f;
     bool isGrounded;
 
 
@@ -29,9 +32,18 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         //horizontal movement
         float horizontal = Input.GetAxis("Horizontal");
+
+        if (horizontal < 0 ){
+            spriteRenderer.flipX = true;
+            isLeft = true;
+        }else if(horizontal > 0){
+            spriteRenderer.flipX = false;
+            isLeft = false;
+        }
+
         transform.Translate(
             velocidad * horizontal * Time.deltaTime,
             0,
@@ -39,7 +51,6 @@ public class Player : MonoBehaviour
             Space.World
             );
 
-         
         //checks if character is grounded using raycast
         //we set the origin of the raycast at the bottom of the character
         if (Physics2D.Raycast(transform.position + new Vector3(0f,-1f,0f), Vector3.down, distanceToCheck))
