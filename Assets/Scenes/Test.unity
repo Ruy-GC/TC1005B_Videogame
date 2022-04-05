@@ -599,11 +599,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695983847}
   m_CullTransparentMesh: 1
---- !u!212 &886387596 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1666907873890689417, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-  m_PrefabInstance: {fileID: 900901653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &900901653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,14 +658,6 @@ PrefabInstance:
       propertyPath: damageUI
       value: 
       objectReference: {fileID: 1772016058}
-    - target: {fileID: 1666907873890689415, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: jumpAmount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1666907873890689415, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 886387596}
     - target: {fileID: 1666907873890689416, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
       propertyPath: m_Name
       value: player
@@ -682,30 +669,6 @@ PrefabInstance:
     - target: {fileID: 1666907873890689417, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
       propertyPath: m_FlipY
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1666907873890689416, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: attackTime
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: attackRange
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: attackLocation
-      value: 
-      objectReference: {fileID: 1335279333}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: enemies.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3607429050505585830, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-      propertyPath: startAttackTime
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
@@ -1084,11 +1047,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &1335279333 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1666907873890689414, guid: 3da23b1365e074647a831823b2bbf78e, type: 3}
-  m_PrefabInstance: {fileID: 900901653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371702282
 GameObject:
   m_ObjectHideFlags: 0

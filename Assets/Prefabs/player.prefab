@@ -101,7 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   rb: {fileID: 1666907873890689412}
-  jumpAmount: 7
+  jumpAmount: 10
+  spriteRenderer: {fileID: 1666907873890689417}
+  isLeft: 0
   force: 5
   forceMode: 1
   damageUI: {fileID: 0}
@@ -184,4 +186,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d6639557ee0594cbc4dfdb30f82691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1666907873890689415}
   anim: {fileID: 2585540427700268928}
+  attackTime: 0.25
+  startAttackTime: 0.25
+  attackLocation: {fileID: 1666907873890689414}
+  attackRange: 0.5
+  enemies:
+    serializedVersion: 2
+    m_Bits: 8
