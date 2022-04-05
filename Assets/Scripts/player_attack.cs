@@ -5,15 +5,16 @@ using UnityEngine;
 public class player_attack : MonoBehaviour
 {
 
-    [SerializeField]
-    private Animator anim;
+    public Player player;
+    [SerializeField] private Animator anim;
 
     //attack properties
-    public float attackTime;
-    public float startAttackTime;
-    public Transform attackLocation;
-    public float attackRange;
-    public LayerMask enemies;
+    [SerializeField] private float attackTime;
+    [SerializeField] private float startAttackTime;
+    [SerializeField] private Transform attackLocation;
+    [SerializeField] private float attackRange;
+    [SerializeField] private LayerMask enemies;
+    Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,17 @@ public class player_attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.isLeft){
+            direction = new Vector3 (-1.5f,0f,0f);
+        }else{
+            direction = new Vector3 (1.5f,0f,0f);
+        }
+
         if(attackTime <= 0){
             if(Input.GetKeyDown(KeyCode.X)){
                 anim.SetBool("is_attacking", true);
                 attackTime = startAttackTime;
-                Collider2D[] damage = Physics2D.OverlapCircleAll( attackLocation.position, attackRange, enemies );
+                Collider2D[] damage = Physics2D.OverlapCircleAll( attackLocation.position + direction, attackRange, enemies );
                 
                 StartCoroutine(destroyE(damage));
             }
@@ -45,5 +51,11 @@ public class player_attack : MonoBehaviour
                 {
                     Destroy( damage[i].gameObject );
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackLocation.position + direction, attackRange);
     }
 }
