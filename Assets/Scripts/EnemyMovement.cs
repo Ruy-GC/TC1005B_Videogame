@@ -4,35 +4,65 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    
-    public float lowSpeed;
-    public float highSpeed;
-    float speed;
+    public float accelerationTime = 1f;
+    public float lowSpeed = 10f;
+    public float highSpeed = 50f;
+    private float time;
+    //public float speed;
 
-    public string [] collisions;
+    public Rigidbody2D rb;
     public AudioClip collisionSound;
 
-    float step = Mathf.PI / 60;
-    float timeVar = 0;
-    float rotationRange = 120;
-    float baseDirection = 0;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-    Vector3 randomDirection;
+    float side;
+
+    //Vector3 randomDirection;
+    Vector2 movement;
 
     // Start is called before the first frame update
-    void CollisionStart(Collision col){
-        if (col.gameObject.tag == collisions[0]){
+    void OnCollisionEnter2D(Collision2D col){
+        
+        if (col.gameObject.tag == "Player"){
             GetComponent<AudioSource>().PlayOneShot(collisionSound, 2.0f);
-            baseDirection = baseDirection + Random.Range(-30, 30);
+            
+        }
+
+        if (col.gameObject.tag == "wall"){
+            //GetComponent<Rigidbody2D>().AddForce((movement * -1) * highSpeed);
+            movement = movement * -1;
+            side = side * -1;
+            if (side > 0 ){
+                spriteRenderer.flipX = true;
+            }else if(side < 0){
+                spriteRenderer.flipX = false;
+            }
         }
     }
 
     // Update is called once per frame
     void Update(){
-        randomDirection = new Vector3(0, Mathf.Sin(timeVar) * (rotationRange / 2) + baseDirection, 0);
-        timeVar += step;
-        speed = Random.Range(lowSpeed, highSpeed);
-        GetComponent<Rigidbody2D>().AddForce(transform.forward * speed);
-        transform.Rotate(randomDirection * Time.deltaTime * 10.0f);
+        //timeVar += step;
+        time -= Time.deltaTime;
+        side = Random.Range(-5,5);
+        if(time <= 0){
+            movement = new Vector2(side, 0);
+    
+            time += accelerationTime;
+            if (side > 0 ){
+                spriteRenderer.flipX = true;
+            }else if(side < 0){
+                spriteRenderer.flipX = false;
+            }
+        }
+
+        
+
+
+        //GetComponent<Rigidbody2D>().AddForce(transform.forward * speed, ForceMode2D.Impulse);
+    }
+
+    void FixedUpdate(){
+        GetComponent<Rigidbody2D>().AddForce(movement * highSpeed);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6243607342055931707}
   - component: {fileID: 3627593824746021437}
   - component: {fileID: 4263040133566438277}
+  - component: {fileID: 3677037444574259440}
   m_Layer: 0
   m_Name: Minion
   m_TagString: enemy
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3444048744599740962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2261624, y: 2.715659, z: 1}
+  m_LocalScale: {x: 3.307174, y: 2.568525, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95225cad0c77d1344895397efe14fe3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1.27}
@@ -97,10 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def19600f68725442a079fce0a6f3840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowSpeed: 0
-  highSpeed: 0
-  collisions: []
-  collisionSound: {fileID: 0}
+  accelerationTime: 2
+  lowSpeed: 0.5
+  highSpeed: 5
+  rb: {fileID: 0}
+  collisionSound: {fileID: 8300000, guid: 4ff0d69c022ce804889d68fc2407ceca, type: 3}
+  spriteRenderer: {fileID: -645093818839760360}
 --- !u!50 &3627593824746021437
 Rigidbody2D:
   serializedVersion: 4
@@ -121,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4263040133566438277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +151,99 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.55561423, y: 1.1757278}
   m_EdgeRadius: 0
+--- !u!82 &3677037444574259440
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3444048744599740962}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4ff0d69c022ce804889d68fc2407ceca, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
