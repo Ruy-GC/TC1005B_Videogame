@@ -46,7 +46,7 @@ public class player_attack : MonoBehaviour
     }
 
     IEnumerator destroyE(Collider2D[] damage){
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         for (int i = 0; i < damage.Length; i++)
                 {
                     Destroy( damage[i].gameObject );
