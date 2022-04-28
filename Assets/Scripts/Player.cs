@@ -21,6 +21,16 @@ public class Player : MonoBehaviour
     {
     }
 
+    void OnCollisionEnter2D(Collision2D col){
+        if(col.gameObject.name.Equals("Platform"))
+            this.transform.parent = col.transform;
+    }
+
+    void OnCollisionExit2D(Collision2D col){
+        if(col.gameObject.name.Equals ("Platform"))
+            this.transform.parent = null;
+    }
+
     // Update is called once per frame
     void Update()
     {   
