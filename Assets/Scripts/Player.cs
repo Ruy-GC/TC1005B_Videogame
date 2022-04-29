@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
 
         //jumping
         //on pressing space or joystick button 0 (A(xbox), X(ps), B (switch)
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
 
             if (isGrounded){
