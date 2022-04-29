@@ -7,6 +7,8 @@ public class JumpOffPlatform : MonoBehaviour
     // Start is called before the first frame update
     private PlatformEffector2D effector;
     public float waitTime;
+    float directionX, speed = 2.5f;
+    bool movement = true;
     
     void Start()
     {
@@ -16,6 +18,17 @@ public class JumpOffPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(transform.position.x > 10)
+            movement = false;
+        if(transform.position.x < -10f)
+            movement = true;
+
+        if(movement)
+            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+        else
+            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+
 
         //Checks if the down arrow has been released
         if(Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp("joystick button 1"))
@@ -27,7 +40,7 @@ public class JumpOffPlatform : MonoBehaviour
         if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Input.GetKey("joystick button 1"))
         {
             if(waitTime <=0){
-                effector.rotationalOffset = 180f;
+                StartCoroutine("OffPlatform");
                 waitTime = 0.1f;
             } else{
                 waitTime -= Time.deltaTime;
@@ -39,5 +52,12 @@ public class JumpOffPlatform : MonoBehaviour
         {
             effector.rotationalOffset = 0;
         }
+    }
+
+    IEnumerator OffPlatform(){
+        effector.rotationalOffset = 180f;
+        waitTime = 0.1f;
+        yield return new WaitForSeconds(0.7f);
+        effector.rotationalOffset = 0;
     }
 }
