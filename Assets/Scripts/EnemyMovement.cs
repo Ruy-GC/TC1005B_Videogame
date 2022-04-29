@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float accelerationTime = 1f;
-    public float lowSpeed = 10f;
-    public float highSpeed = 50f;
     private float time;
-    //public float speed;
+    private bool movementOn;
+    public float speed;
 
     public AudioClip collisionSound;
+    public Rigidbody2D rb;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -29,9 +29,9 @@ public class EnemyMovement : MonoBehaviour
 
         if (col.gameObject.tag == "wall"){
             //GetComponent<Rigidbody2D>().AddForce((movement * -1) * highSpeed);
-            movement = movement * -1;
-            side = side * -1;
-            print(side);
+            speed = speed * -1;
+            //side = side * -1;
+            //print(side);
             if (spriteRenderer.flipX){
                 spriteRenderer.flipX = false;
             }else{
@@ -40,29 +40,23 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update(){
-        //timeVar += step;
-        time -= Time.deltaTime;
-        side = Random.Range(-5,5);
-        if(time <= 0){
-            movement = new Vector2(side, 0);
-    
-            time += accelerationTime;
-            if (side > 0 ){
-                spriteRenderer.flipX = true;
-            }else if(side < 0){
-                spriteRenderer.flipX = false;
-            }
-        }
-
-        
-
-
-        //GetComponent<Rigidbody2D>().AddForce(transform.forward * speed, ForceMode2D.Impulse);
+    void Start(){
+        movementOn = true;
+        speed = 200f;
     }
 
-    void FixedUpdate(){
-        GetComponent<Rigidbody2D>().AddForce(movement * highSpeed);
+    // Update is called once per frame
+    void Update(){
+    
+
+        if(movementOn){
+            Movement();
+        }
+
+    }
+
+
+    void Movement(){
+        rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 }

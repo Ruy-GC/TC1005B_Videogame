@@ -99,10 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationTime: 2
-  lowSpeed: 0.5
-  highSpeed: 3
-  rb: {fileID: 0}
+  speed: 0
   collisionSound: {fileID: 8300000, guid: 4ff0d69c022ce804889d68fc2407ceca, type: 3}
+  rb: {fileID: 3627593824746021437}
   spriteRenderer: {fileID: -645093818839760360}
 --- !u!50 &3627593824746021437
 Rigidbody2D:
