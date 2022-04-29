@@ -29,7 +29,7 @@ public class GenerateEnemy : MonoBehaviour
             //get an x position between the two borders
             num = Random.Range(leftBorder.transform.position.x , rightBorder.transform.position.x);
             //generate new enemy
-            Instantiate(enemy, new Vector3(num, 2, 0),transform.rotation);
+            Instantiate(enemy, new Vector3(num, -3.5f, 0),transform.rotation);
         }
     }
 }
