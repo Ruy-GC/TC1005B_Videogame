@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_attack : MonoBehaviour
 {
 
-    public Player player;
+    [SerializeField] private Player player;
     [SerializeField] private Animator anim;
 
     //attack properties
@@ -14,17 +15,29 @@ public class player_attack : MonoBehaviour
     [SerializeField] private Transform attackLocation;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask enemies;
-    Vector3 direction;
+    [SerializeField] private GameObject killsUI;
 
+    Vector3 direction;
+    public static int kills;
+    Text killsText;
+
+    void Awake(){
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {   
+        kills = 0;
+        killsText = killsUI.GetComponent<Text>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        killsText.text = "Kills:  " + kills;
+
         if(player.isLeft){
             direction = new Vector3 (-1.5f,0f,0f);
         }else{
@@ -50,6 +63,7 @@ public class player_attack : MonoBehaviour
         for (int i = 0; i < damage.Length; i++)
                 {
                     Destroy( damage[i].gameObject );
+                    kills++;
         }
     }
 
